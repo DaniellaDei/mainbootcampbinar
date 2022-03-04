@@ -1,0 +1,168 @@
+# basic
+
+# print = console.log, jika beda baris hasilnya jd dibawahnya (bukan lanjut disampingnya)
+print("good morning world!")
+
+# print ke overwrite dng yg paling deket diatasnya
+a = "a"
+print(a)
+a = 1
+print(a)
+
+# menambah tulisan dipisah dng koma
+print(a, "adalah bilangan ganjil")
+
+# aritmatika
+print((a+a)*(a+a+a))
+
+# separator & end
+print(a,a,a,a, sep="a, ", end="a!")
+
+# \n untuk enter ke baris selanjutnya
+# dipake dibawah ini soalnya "end" diatas jg berfungsi untuk menghilangkan enter
+
+# formatting
+print('\nsaya suka warna {1} dan {0}'.format('putih','biru','kuning','merah'))
+job1= "rebahan"
+job2= "menggambar"
+print('saya suka {} dan {}'.format(job1, job2))
+
+# input
+makanan = input("km suka makan apa? " )
+print("wah! sama dong :D Aku juga suka makan", makanan)
+
+# import
+import math
+print("fyi, nilai dari phi adalah: ", math.pi)
+
+
+# if elif else
+
+# if else
+print("jawablah soal berikut!")
+jawab = input("1+1= ")
+if jawab == "2":
+    print("jawaban benar")
+else:
+    print("jawaban salah")
+
+# if elif else yg disingkat
+print ("Jawablah pertanyaan berikut")
+a = int(input("apa pekerjaan kamu saat ini? \n1. QA + Facil binar \n2. Guru matematika \n3. Pekerja kantor \n4. Ojol \n5. Anak kuliahan \n6. Pelajar freelance \n"))
+if a==1: print("Halo miss Elva")
+elif a==2: print("Halo Aulia")
+elif a==3: 
+    b = int(input("Apa kamu memakai kacamata? \n1. Tidak \n2. Iya \n"))
+    print("Halo Cindy") if b==1 else print("Halo Sarah")
+elif a==4: print("Halo Krissy")
+elif a==5: 
+    c = int(input("Apa jurusan kuliahmu? \n1. Ilmu & Teknologi Pangan  \n2. Teknik Informatika \n3. Desain Interior \n"))
+    if c==1: print("Halo Christpher") 
+    elif c==2: print("Halo Akram")
+    else: print("Halo Dei")
+elif a==6: print("Halo Kevin")
+else: print("Pilihan tidak terdaftar")
+
+# kalkulator
+print("Starting calculator...")
+angka1 = float(input("masukkan angka pertama: "))
+operator = input("masukkan operator (+)(-)(x)(/): ")
+angka2 = float(input("masukkan angka kedua: "))
+if operator == "+" : print(angka1 + angka2)
+elif operator == "-" : print(angka1 - angka2)
+elif operator == "x" : print(angka1 * angka2)
+elif operator == "/" : print(angka1 / angka2)
+else : print("angka atau operator salah")
+
+
+# for when (looping)
+
+deretangka = [1,2,3,4,5]
+for i in deretangka:
+    print(f"nilai loop saat ini adalah {i}")
+
+print(20*"=") #pembatas
+
+deretstring = "string"
+for i in deretstring:
+    print(i)
+
+print(20*"=")
+
+for i in range(1,5):
+    print(i)
+
+print(20*"=")
+
+angka = 1
+print("Berikut ini adalah angka ganjil dibawah sepuluh:",angka, end=", ")
+while angka < 7:
+    angka += 2
+    print (angka, end=", ")
+while angka == 7:
+    angka += 2
+    print (angka)
+
+
+# function
+
+# create function
+def kendaraan(nama,roda):
+    print(nama, "memiliki roda sebanyak", roda)
+
+# calling function
+kendaraan("mobil","empat")
+kendaraan("motor","dua")
+
+# arbitary argument (*) -> blom tau seberapa banyak parameternya
+def sus(*warna):
+    print("impostornya adalah si", warna[2])
+
+sus("merah","hijau","cyan","ungu","biru","kuning")
+
+# keyword argument
+def task(a,b,c,d):
+    print("yang harus dikerjakan sekarang adalah", c)
+    print("yang bisa dikerjakan nanti adalah", a)
+    print("yang tidak perlu dikerjakan hari ini adalah", d)
+
+task(a="mencuci piring", b="menjemur baju", c="menyetrika baju", d="menyapu lantai")
+
+#default parameter
+def matkul(x="studio desain"):
+    print("hari ini ngerjain tugas dari matkul", x)
+
+matkul()
+matkul("studio mebel")
+
+#return value
+def penjumlahan(x,y):
+    return x+y
+
+a=int(input("masukkan angka pertama: "))
+b=int(input("masukkan angka kedua: "))
+print("penjumlahan dari", a, "dan", b, "adalah", penjumlahan(a,b))
+
+
+# class
+
+class Hewan:
+    def __init__(h, nama, kaki, makanan):
+        h.name = nama
+        h.feet = kaki
+        h.food = makanan
+    def fungsi(x):
+        print(x.name,"memiliki", x.feet, "kaki dan adalah seekor", x.food)
+#create class
+
+Bebek = Hewan("Bebek","dua","omnivora")
+Kuda = Hewan("Kuda","empat","herbivora")
+Kucing = Hewan("Kucing","empat","karnivora")
+#deklarasi objek
+
+Bebek.fungsi()
+Kuda.fungsi()
+Kucing.fungsi()
+print(Kuda.name)
+print(Bebek.food)
+# execute method
