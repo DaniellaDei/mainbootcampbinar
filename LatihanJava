@@ -1,0 +1,134 @@
+import java.util.Scanner; //klo mau import semua yg ada di util(ity) file, "Scanner" diganti sama "*"
+
+public class Latian {
+    public static void main(String[] args) {
+        //scanner untuk input
+        Scanner Input = new Scanner(System.in);
+
+        pembatas("Luas dan volume balok");
+        //input + print
+        int panjang, lebar, tinggi, luas, volume;
+        System.out.print("Masukkan panjang: ");
+        panjang = Input.nextInt();
+        System.out.print("Masukkan lebar: ");
+        lebar = Input.nextInt();
+        System.out.print("Masukkan tinggi: ");
+        tinggi = Input.nextInt();
+        //print line
+        System.out.println("panjang: " + panjang);
+        System.out.println("lebar: " + lebar);
+        System.out.println("tinggi: " + tinggi);
+        //aritmatik
+        luas = 2*((panjang * lebar)+(panjang * tinggi)+(lebar * tinggi));
+        volume = luas * tinggi;
+        System.out.println("luasnya adalah: " + luas);
+        System.out.println("volumenya adalah: " + volume);
+
+        pembatas("If Else");
+        System.out.print("Berapa suhu tubuh anda? (celcius): ");
+        float x = Input.nextFloat();
+        if (x < 36){
+            System.out.println("suhu tubuh anda rendah");
+        } else if (x > 38){
+            System.out.println("suhu tubuh anda tinggi");
+        } else {
+            System.out.println("suhu tubuh anda normal");
+        }
+
+        pembatas("Switch Case");
+        System.out.println("Bisa bantu engga? (gak/entar/oke)");
+        String jawab = Input.next();
+        switch (jawab){
+            case "gak": System.out.println("Yah :''("); break; //kalau tidak pakai break, case dibawahnya ikut terbaca
+            case "oke": System.out.print("Thanks. Tolong cuciin baju, ");
+            case "entar": System.out.println("nanti lanjutin setrikaan ya"); break;
+            default: System.out.println("?-?"); break;
+        }
+
+        pembatas("Ternary operator");
+        System.out.print("Masukkan angka diantara 1-10: ");
+        float a = Input.nextFloat();
+        String b = a >= 1 & a <= 10? ("angka sesuai") : ("angka salah");
+        System.out.print(b);
+
+        System.out.println("===== Perulangan =====");
+        System.out.print("Masukkan satu digit angka: ");
+        int p = Input.nextInt();
+        //while
+        while (p <= 10){
+            System.out.println("nilai saat ini adalah: " + p);
+            p++; //p = p + 1
+        }
+        //do while
+        System.out.print("Masukkan satu digit angka: ");
+        int q = Input.nextInt();
+        do {
+            q += 10;
+            System.out.println("nilai saat ini adalah: " + q);
+        } while (q <= 90);
+        //for loop
+        System.out.print("Masukkan satu digit angka: ");
+        for (int r = Input.nextInt(); r <= 10; r++){
+            System.out.println("nilai saat ini adalah: " + r);
+        }
+
+        pembatas("Fungsi");
+        pangkatdua(4);
+        System.out.println(sapa());
+
+        pembatas("OOP");
+        warna orange = new warna("merah","kuning","orange");
+        warna hijau = new warna("biru","kuning","hijau");
+        warna ungu = new warna("merah","biru","ungu");
+        orange.hasil();
+        orange.setWarna("maroon");
+        orange.hasil();
+        hijau.hasil();
+        System.out.println(ungu.getWarna());
+        System.out.println(hijau.getWarna());
+        String komen = hijau.pernyataan("adalah warna yang segar dan menenangkan");
+        System.out.println(komen);
+    }
+
+    //fungsi, bisa ditaruh diatas psv main
+    public static void pembatas(String batas){
+        System.out.println("===== " + batas + " =====");
+    }
+    public static void pangkatdua(int angka){
+        System.out.println(angka + " kuadrat bernilai " + angka*angka);
+    }
+    public static String sapa(){ //klo g pake void harus diisi nilai return
+        return "halo, kamu siapa? kamu sperti jelly";
+    }
+}
+
+//class, dibuat diluar public(???), bisa ditaruh diatas psv main
+class warna {
+    //data
+    String primer1;
+    String primer2;
+    String sekunder;
+    //constructor
+    warna(String p1, String p2, String s) {
+        this.primer1 = p1;
+        this.primer2 = p2;
+        this.sekunder = s;
+        System.out.println("Data baru diterima");
+    }
+    //method tanpa return tanpa parameter
+    void hasil() {
+        System.out.println(this.primer1 + " bila dicampur dengan " + this.primer2 + " akan menjadi " + this.sekunder);
+    }
+    //method tanpa return dengan parameter
+    void setWarna(String p1Baru){
+        this.primer1 = p1Baru;
+    }
+    //method dengan return tanpa parameter
+    String getWarna(){
+        return this.sekunder + " didapat dari campuran " + this.primer1 + " dan " + this.primer2;
+    }
+    //method dengan return dengan parameter
+    String pernyataan(String pesan){
+        return this.sekunder + " " + pesan;
+    }
+}
