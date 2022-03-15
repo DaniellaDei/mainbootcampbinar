@@ -1,5 +1,3 @@
-import java.util.Scanner; //klo mau import semua yg ada di util(ity) file, "Scanner" diganti sama "*"
-
 public class Latian {
     public static void main(String[] args) {
         //scanner untuk input
@@ -49,10 +47,10 @@ public class Latian {
         System.out.print("Masukkan angka diantara 1-10: ");
         float a = Input.nextFloat();
         String b = a >= 1 & a <= 10? ("angka sesuai") : ("angka salah");
-        System.out.print(b);
+        System.out.println(b);
 
         System.out.println("===== Perulangan =====");
-        System.out.print("Masukkan satu digit angka: ");
+        System.out.print("Masukkan satu digit angka untuk diulang hingga mencapai nilai 10: ");
         int p = Input.nextInt();
         //while
         while (p <= 10){
@@ -60,15 +58,15 @@ public class Latian {
             p++; //p = p + 1
         }
         //do while
-        System.out.print("Masukkan satu digit angka: ");
+        System.out.print("Masukkan satu digit angka untuk diulang hingga mencapai nilai kurang dari 100: ");
         int q = Input.nextInt();
         do {
             q += 10;
             System.out.println("nilai saat ini adalah: " + q);
         } while (q <= 90);
         //for loop
-        System.out.print("Masukkan satu digit angka: ");
-        for (int r = Input.nextInt(); r <= 10; r++){
+        System.out.print("Masukkan satu digit angka untuk ditambah dengan 2 di setiap loop: ");
+        for (int r = Input.nextInt(); r <= 10; r = r+2){
             System.out.println("nilai saat ini adalah: " + r);
         }
 
@@ -98,7 +96,7 @@ public class Latian {
         System.out.println(angka + " kuadrat bernilai " + angka*angka);
     }
     public static String sapa(){ //klo g pake void harus diisi nilai return
-        return "halo, kamu siapa? kamu sperti jelly";
+        return "halo, kamu siapa? kamu sperti jelly~~";
     }
 }
 
